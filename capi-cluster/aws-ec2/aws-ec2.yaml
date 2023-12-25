@@ -16,11 +16,11 @@ spec:
     kind: KubeadmControlPlane
     name: capi-ec2-control-plane
   infrastructureRef:
-    apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+    apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
     kind: AWSCluster
     name: capi-ec2
 ---
-apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
 kind: AWSCluster
 metadata:
   name: capi-ec2
@@ -55,13 +55,13 @@ spec:
         name: '{{ ds.meta_data.local_hostname }}'
   machineTemplate:
     infrastructureRef:
-      apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+      apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
       kind: AWSMachineTemplate
       name: capi-ec2-control-plane
   replicas: 3
-  version: v1.28.0
+  version: v1.24.0
 ---
-apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
 kind: AWSMachineTemplate
 metadata:
   name: capi-ec2-control-plane
@@ -92,12 +92,12 @@ spec:
           name: capi-ec2-md-0
       clusterName: capi-ec2
       infrastructureRef:
-        apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+        apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
         kind: AWSMachineTemplate
         name: capi-ec2-md-0
-      version: v1.28.0
+      version: v1.24.0
 ---
-apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
 kind: AWSMachineTemplate
 metadata:
   name: capi-ec2-md-0
